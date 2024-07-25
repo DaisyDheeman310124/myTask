@@ -1,0 +1,22 @@
+<div class="container">
+    <div>
+        <label for="gender">Gender:</label>
+        <select id="gender" (change)="selectValue($event, 'Gender')">
+            <option value="null" selected disabled>Select gender</option>
+            <option *ngFor="let gender of genders" [value]="gender.value">{{ gender?.text }}</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="blood-group">Blood Group:</label>
+        <select id="blood-group" (change)="selectValue($event, 'Bloodgroup')">
+            <option value="null" selected disabled>Select blood groups</option>
+            <option *ngFor="let bloodGroup of bloodGroups" [value]="bloodGroup.value">{{ bloodGroup?.text }}</option>
+        </select>
+    </div>
+    <!-- Display selected values -->
+    <div>
+        <p>Selected Gender Value: {{ selectedGender }}</p>
+        <p>Selected Blood Group Value: {{ selectedBloodGroup }}</p>
+    </div>
+</div>

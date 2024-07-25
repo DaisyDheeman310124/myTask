@@ -1,0 +1,98 @@
+/* Overall page styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light background color */
+    overflow: hidden; /* Hide overflow to ensure bubbles stay within view */
+  }
+  
+  /* Container styling */
+  .container {
+    background: #fff; /* White background for the container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 500px; /* Max width for larger screens */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Form element styling */
+  div {
+    margin-bottom: 15px;
+  }
+  
+  /* Label styling */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Select element styling */
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  /* Select element focus styling */
+  select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(38, 143, 255, 0.2);
+    outline: none;
+  }
+  
+  /* Paragraph styling */
+  p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+  }
+  
+  /* Bubble background animation */
+  @keyframes bubble {
+    0% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 0.2;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.4;
+    }
+  }
+  
+  /* Bubble effect for the container */
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 123, 255, 0.3) 20%, rgba(0, 123, 255, 0) 60%);
+    border-radius: 50%;
+    animation: bubble 10s infinite;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* Ensures bubbles are behind the content */
+  }
+  
+  .container > * {
+    position: relative; /* Ensures content is on top of the bubbles */
+    z-index: 1;
+  }
+  
